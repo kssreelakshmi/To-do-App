@@ -1,0 +1,122 @@
+body, html, #root {
+  background-color: rgb(46, 46, 204);
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex; 
+  flex-direction: column-reverse;
+
+}
+.container{
+
+  
+  background-size: cover;
+  background-position: inherit;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
+} 
+h1{
+  margin-top: 0;
+  padding: 10px;
+}
+
+.to-do-list{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 100px;
+
+
+}
+h1{
+  font-size: 4rem;
+}
+button{
+  font-size:  1.7rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+.add-button{
+  background-color: hsl(125, 47%, 54%);
+}
+.add-button:hover{
+  background-color: hsl(125, 47%, 40%);
+}
+.delete-button{
+  background-color: hsl(10, 90%, 50%);
+}
+.delete-button:hover{
+  background-color: hsl(10, 90%, 40%);
+}
+.remove-button{
+  background-color: hsl(0, 5%, 27%);
+}
+.remove-button:hover{
+  background-color: hsl(0, 7%, 37%);
+}
+.edit-button{
+  background-color: hsl(120, 100%, 0%);
+}
+.edit-button:hover{
+  background-color: hsl(140, 4%, 13%);
+}
+.moveup-button{
+  background-color: hsl(215, 67%, 58%);
+}
+.movedown-button{
+  background-color: hsl(207, 56%, 32%);
+}
+.moveup-button:hover{
+  background-color: hsl(215, 67%, 40%);
+}
+.movedown-button:hover{
+  background-color: hsl(207, 56%, 20%);
+}
+input[type='text']{
+  font-size: 1.6rem;
+   padding: 10px;
+   border: 2px solid hsla(0, 0%, 80%, 0.5);
+   border-radius: 5px;
+   color: hsla(0, 0%, 0%, 0.5);
+}
+ol{
+  padding: 0;
+}
+li{
+  font: 2rem;
+  font-weight: bold;
+  padding: 15px;
+  background-color: hsla(0,0%, 97%);
+  margin-bottom: 10px;
+  border: 3px solid hsla(0, 0%, 85%,0.75);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+
+}
+.text{
+  flex: 1;
+  /* flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%; */
+}
+.delete-button,.edit-button,.moveup-button,.movedown-button{
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  margin-left: 10px;
+}
