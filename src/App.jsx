@@ -1,4 +1,5 @@
 
+// import TodoListt from './TodoListt'
 import ToDoList from './ToDoList'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
      <ToDoList/>
+     {/* <TodoListt/> */}
     </>
   )
 }
