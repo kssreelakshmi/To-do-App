@@ -1,13 +1,16 @@
 
-// import TodoListt from './TodoListt'
+import TodoListt from './TodoListt'
 import ToDoList from './ToDoList'
 
 function App() {
 
   return (
     <>
-     <ToDoList/>
-     {/* <TodoListt/> */}
+     <div className='todo-app'>
+     <TodoListt/>
+
+     {/* <ToDoList/> */}
+     </div>
     </>
   )
 }
