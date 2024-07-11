@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TodoForm from './TodoForm'
 import {RiCloseCircleLine} from 'react-icons/ri'
-import {TiEdit} from 'react-icons/Ti'
+import { TiEdit } from "react-icons/ti";
 import {AiOutlineDelete} from 'react-icons/ai'
 import { IoIosArrowRoundUp } from "react-icons/io";
 import { IoIosArrowRoundDown } from "react-icons/io";

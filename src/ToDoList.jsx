@@ -1,6 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import BackgroundImage from './assets/BackgroundImage.jpg'
-
+import {RiCloseCircleLine} from 'react-icons/ri'
+import { TiEdit } from "react-icons/ti";
+import {AiOutlineDelete} from 'react-icons/ai'
+import { IoIosArrowRoundUp } from "react-icons/io";
+import { IoIosArrowRoundDown } from "react-icons/io";
+import { MdAddBox } from "react-icons/md";
+import { TbEdit } from "react-icons/tb";
 
 function ToDoList() {
   const [tasks, setTasks] = useState([]);
@@ -19,17 +25,20 @@ function ToDoList() {
 
     if (newTask.trim() !== "") {
       if (!edit.status) {
-        setTasks((prev)=>{
-          return [...prev,{
+        setTasks((prev)=>
+           [...prev,{
             data : newTask,
             id : Date.now()
           }]
-        });
+        );
 
       }
       else {
         const updatedTask = [...tasks];
-        updatedTask[edit.index] = newTask
+        updatedTask[edit.index] = {
+          ...updatedTask[edit.index],
+          data: newTask,
+        };
         setTasks(updatedTask);
         setEdit({
           status: false,
@@ -41,6 +50,8 @@ function ToDoList() {
   }
 
   function editTask(e,index) { 
+
+    e.stopPropagation();
     setNewTask(tasks[index]?.data)
     setEdit({
       status: true,
@@ -51,7 +62,7 @@ function ToDoList() {
 
   function deleteTask(e,index) {
     e.stopPropagation();
-    const updatedTask = tasks.filter((_, idx) => idx !== index)
+    const updatedTask = tasks.filter((tas, idx) => tas.id !== index)
     setTasks(updatedTask);
   }
 
@@ -83,7 +94,7 @@ function ToDoList() {
 
   }
 
-  const checkInput = (e,index) =>{
+  const checkInput = (index) =>{
     const value = tasks.map((element,idx)=> {
       if(element.id === index){
         element.isCompleted = !element.isCompleted
@@ -102,9 +113,9 @@ function ToDoList() {
         <div>
           <input type="text" placeholder='Enter a task...'
             value={newTask} onChange={handleInputChange} />
-          <button className='add-button' onClick={addTask}>{!edit.status ? "Add" : "Edit"}</button>
-          <button className='remove-button' onClick={() => removeAll()}>Remove All</button>
-          <button className='check-all' onClick={() => checkAll()}>Completed</button>
+          <button className='add-button' onClick={addTask}>{!edit.status ? <MdAddBox /> : <TbEdit />}</button>
+          <button className='remove-button' onClick={() => removeAll()}><AiOutlineDelete /></button>
+          {/* <button className='check-all' onClick={() => checkAll()}>Completed</button> */}
         </div>
         <ol>
 
@@ -112,10 +123,15 @@ function ToDoList() {
           {tasks.map((task, index) =>
             <li key={index } onClick={() =>  checkInput(task.id)} style={{backgroundColor : task.isCompleted?'green':'red'}}>
               <span className='text'>{task.data} </span>
-              <button className='delete-button' onClick={(e) => deleteTask(e,task.id)}>Delete</button>
-              <button className='edit-button' onClick={(e) => editTask(e,index)}>Edit</button>
-              <button className='moveup-button' onClick={(e) => moveTaskUp(e,index)}>Move Up</button>
-              <button className='movedown-button' onClick={(e) => moveTaskDown(e,index)}>Move Down</button>
+              <button className='delete-button' onClick={(e) => deleteTask(e,task.id)}><RiCloseCircleLine /></button>
+              <button className='edit-button' onClick={(e) => editTask(e,index)}><TiEdit /></button>
+              <button className='moveup-button' onClick={(e) => moveTaskUp(e,index)}><IoIosArrowRoundUp /></button>
+              <button className='movedown-button' onClick={(e) => moveTaskDown(e,index)}><IoIosArrowRoundDown /></button>
+              
+                
+                
+
+
             </li>
           )}
 

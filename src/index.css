@@ -1,5 +1,4 @@
 body, html, #root {
-  background-color: rgb(46, 46, 204);
   height: 100%;
   width: 100%;
   font-family: Arial, sans-serif;
@@ -11,19 +10,16 @@ body, html, #root {
 }
 .container{
 
-  
   background-size: cover;
   background-position: inherit;
   background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
+  height: 100vh; /* Adjust as needed */
+  width: 100vw; /* Adjust as needed */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-
-
 } 
 h1{
   margin-top: 0;
